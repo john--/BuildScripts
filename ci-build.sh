@@ -26,7 +26,7 @@ finish_test()
 # Admesh setup
 ######################################################################
 
-chmod +x ${BASE_DIR}/travis_scripts/*.py
+chmod +x ${BASE_DIR}/.github_scripts/*.py
 
 ADMESH_DIR=${CACHE_DIR}/admesh-0.98.4
 mkdir -p ${CACHE_DIR}
@@ -52,10 +52,10 @@ start_test validate_stls "Validate STLs"
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   # Regular branch push, test all files
-  find ${BASE_DIR} -type f -iname "*.STL" -exec "${BASE_DIR}/travis_scripts/validate-file.py" {} \;
+  find ${BASE_DIR} -type f -iname "*.STL" -exec "${BASE_DIR}/.github_scripts/validate-file.py" {} \;
 else
   # Compare head against the branch to merge into (PR)
-  git diff --name-only --diff-filter=AMR -R HEAD origin/${TRAVIS_BRANCH} | xargs -n 1 -I {} ${BASE_DIR}/travis_scripts/validate-file.py ${BASE_DIR}/{}
+  git diff --name-only --diff-filter=AMR -R HEAD origin/${TRAVIS_BRANCH} | xargs -n 1 -I {} ${BASE_DIR}/.github_scripts/validate-file.py ${BASE_DIR}/{}
 fi
 
 finish_test validate_stls "Validate STLs"

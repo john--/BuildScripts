@@ -4,7 +4,7 @@
 
 git status
 
-git subtree pull --prefix travis_scripts https://github.com/john--/BuildScripts.git master --squash
+git subtree pull --prefix ./github_scripts https://github.com/john--/BuildScripts.git master --squash
 
-chmod +x ${PWD}/travis_scripts/*.py
-${PWD}/travis_scripts/ci-build.sh
+chmod +x ${PWD}/.github_scripts/*.py
+${PWD}/.github_scripts/ci-build.sh
