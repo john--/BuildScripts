@@ -4,4 +4,5 @@
 
 git subtree pull --prefix .github_scripts https://github.com/john--/BuildScripts.git master --squash -m "update"
 
-sh ${PWD}/.github_scripts/ci-build.sh
+chmod +x ${PWD}/.github_scripts/ci-build.sh
+${PWD}/.github_scripts/ci-build.sh
