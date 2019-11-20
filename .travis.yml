@@ -11,4 +11,4 @@ cache:
 before_install:
   - npm install remark-cli remark-validate-links
 
-script: sh ./travis_scripts/init.sh
+script: sh ./.github_scripts/init.sh
